@@ -1,4 +1,4 @@
-# WPPConnect FrontEnd
+# ID-Chat
 ----
 
 <img src="https://img.shields.io/static/v1?label=FrontEnd&message=WPPConnect&color=007AF3&style=for-the-badge&logo=ghost"/>

@@ -52,27 +52,27 @@ function AllSessionsDialog({onClose, selectedValue, open, sessions}) {
     return (
         <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
             <Layout>
-                <DialogTitle id="simple-dialog-title">Escolha uma sessão</DialogTitle>
+                <DialogTitle id="simple-dialog-title">Escoja una sesión</DialogTitle>
                 <List>
-                    {sessions.map((sessao, index) => (
-                        <ListItem button onClick={() => handleListItemClick(sessao)} key={index}>
+                    {sessions.map((session, index) => (
+                        <ListItem button onClick={() => handleListItemClick(session)} key={index}>
                             <ListItemAvatar>
                                 <Avatar className={classes.avatar}>
                                     <User/>
                                 </Avatar>
                             </ListItemAvatar>
 
-                            <ListItemText primary={sessao.session}/>
+                            <ListItemText primary={session.session}/>
                         </ListItem>
                     ))}
 
-                    <ListItem autoFocus button onClick={() => history.push("nova-sessao")}>
+                    <ListItem autoFocus button onClick={() => history.push("new-session")}>
                         <ListItemAvatar>
                             <Avatar>
                                 <Plus/>
                             </Avatar>
                         </ListItemAvatar>
-                        <ListItemText primary="Nova Sessão"/>
+                        <ListItemText primary="Nueva sesión"/>
                     </ListItem>
                 </List>
             </Layout>

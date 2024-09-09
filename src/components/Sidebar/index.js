@@ -57,7 +57,7 @@ const Sidebar = () => {
             }
         }
         await api.post(`${getSession()}/close-session`, null, config);
-        window.location.href = "/nova-sessao";
+        window.location.href = "/new-session";
     }
 
     return (
@@ -77,45 +77,45 @@ const Sidebar = () => {
                     </li>
 
                     <li>
-                        <NavLink to={"contatos"} activeClassName={"selected"}>
-                            <User/> Contacts
+                        <NavLink to={"contacts"} activeClassName={"selected"}>
+                            <User/> Contactos
                         </NavLink>
                     </li>
 
                     <li>
-                        <NavLink to={"grupo"} activeClassName={"selected"}>
-                            <Users/> Groups
+                        <NavLink to={"group"} activeClassName={"selected"}>
+                            <Users/> Grupos
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink
-                            to={"relatorio"}
+                            to={"resports"}
                             activeClassName={"selected"}
                             onClick={(e) => handleClickDisabled(e)}
                             className={"disabled"}
                         >
-                            <BarChart/> Reports
+                            <BarChart/> Reportes
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink
-                            to={"configuracoes"}
+                            to={"settings"}
                             activeClassName={"selected"}
                             onClick={(e) => handleClickDisabled(e)}
                             className={"disabled"}>
-                            <Settings/> Settings
+                            <Settings/> Configuración
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink
-                            to={"sair"}
+                            to={"logout"}
                             activeClassName={"selected"}
                             onClick={(e) => logoutSession(e)}
                         >
-                            <LogOut/> Disconnect device
+                            <LogOut/> Log out
                         </NavLink>
                     </li>
                 </MenuItems>
@@ -125,7 +125,7 @@ const Sidebar = () => {
                         <div>
                             <div className={"online-circle"}/>
                             <p>
-                                Online
+                                En linea
                             </p>
                         </div>
 
@@ -134,7 +134,7 @@ const Sidebar = () => {
                                 e.preventDefault();
                                 handleClickOpen();
                             }}>
-                                Change
+                                Cambiar sesión
                             </a>
                         </div>
                     </ChangeSession>
@@ -147,7 +147,7 @@ const Sidebar = () => {
                                 {selectedValue}
                             </p>
                             <small>
-                                Active Session
+                                Sección actual
                             </small>
                         </div>
                     </InfoSession>

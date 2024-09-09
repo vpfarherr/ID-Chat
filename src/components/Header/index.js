@@ -38,7 +38,7 @@ const Header = () => {
 
                         <li>
                             <Link href="https://wppconnect-team.github.io/wppconnect/"
-                                  target={"_blank"}>Documentation</Link>
+                                  target={"_blank"}>Documentación</Link>
                         </li>
                     </ul>
                 </Buttons>

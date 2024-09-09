@@ -71,18 +71,17 @@ function ModalMenu({open, handleClose}) {
                                     Token
                                 </h2>
                                 <p>
-                                    Não sabe o token? Dá uma olhada lá na documentação do servidor 😃
+                                    ¿No sabes el token? Echa un vistazo a la documentación del servidor
                                 </p>
                             </div>
-
+                
                             <div className={"bottom-section"}>
                                 <button onClick={handleClose}>
-                                    Fechar
+                                    Cerrar
                                 </button>
-
-                                <a href={"https://github.com/wppconnect-team/wppconnect-server"} rel={"noreferrer"}
-                                   target={"_blank"}>
-                                    <Link/> Abrir Documentação
+                
+                                <a href={""} rel={"noreferrer"} target={"_blank"}>
+                                    <Link/> Abrir Documentación
                                 </a>
                             </div>
                         </ModalContainer>

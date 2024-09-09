@@ -152,9 +152,9 @@ const ChatComponent = ({
             ""
           );
         }
-        if (m.subtype === "leave") return `${m?.recipients[0]?.user} saiu`;
-        if (m.subtype === "remove") return `${sender} removeu \n${users}`;
-        if (m.subtype === "add") return `${sender} adicionou \n${users}`;
+        if (m.subtype === "leave") return `${m?.recipients[0]?.user} salió`;
+        if (m.subtype === "remove") return `${sender} eliminó \n${users}`;
+        if (m.subtype === "add") return `${sender} añadió \n${users}`;
       }
     } catch (error) {
       return "";
@@ -169,7 +169,7 @@ const ChatComponent = ({
       message.subtype === "picture"
     ) {
       const sender = getSender(message);
-      return `${sender} Alterou a imagem do grupo`;
+      return `${sender} cambió la imagen del grupo`;
     }
 
     if (!message?.body) return getReason(message);
@@ -184,7 +184,7 @@ const ChatComponent = ({
       },
     },
     {
-      label: "Apagar",
+      label: "Eliminar",
       method() {
         setAnchorEl(null);
         setOpenDeleteDialog(true);
@@ -319,8 +319,8 @@ const ChatComponent = ({
 
       {openDeleteDialog && (
         <AlertDialog
-          title="Confirma Apagar?"
-          content="Se for possível será apagado para todos, senão, somente para você"
+          title="¿Confirmas eliminar?"
+          content="Si es posible, se eliminará para todos, si no, solo para ti"
           confirm={async () => {
             try {
               await api.post(
@@ -332,7 +332,7 @@ const ChatComponent = ({
                 config()
               );
             } catch (error) {
-              toast.error("Não foi possível apagar", {
+              toast.error("No fue posible eliminar", {
                 position: "bottom-center",
                 autoClose: 2000,
                 hideProgressBar: false,

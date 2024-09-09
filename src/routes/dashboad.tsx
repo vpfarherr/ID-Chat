@@ -27,8 +27,8 @@ export function Dashboard() {
         <DrawerProvider>
           <DrawerLeft menuContent={<Sidebar />}>
             <Route path="/chat" component={SendMessagePage} />
-            <Route path="/contatos" component={ContactsPage} />
-            <Route path="/grupo" component={GroupPage} />
+            <Route path="/contacts" component={ContactsPage} />
+            <Route path="/group" component={GroupPage} />
           </DrawerLeft>
         </DrawerProvider>
       </Switch>

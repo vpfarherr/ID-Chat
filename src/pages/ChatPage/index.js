@@ -177,13 +177,13 @@ const SendMessagePage = () => {
                 setIsBlocked(false);
             },
             () => {
-                alert("Permission Denied");
+                alert("Permiso denegado");
                 setIsBlocked(true);
             },
         );
 
         if (isBlocked) {
-            alert("Permission Denied");
+            alert("Permiso denegado");
         } else {
             recorder.start().then(() => {
                 setRecordState(true);
@@ -225,7 +225,7 @@ const SendMessagePage = () => {
             new Audio(URL.createObjectURL(file));
 
         }).catch((e) => {
-            alert("We could not retrieve your message");
+            alert("No pudimos recuperar tu mensaje");
             console.log(e);
         });
     };
@@ -333,7 +333,7 @@ const SendMessagePage = () => {
             clearAndScrollToBottom();
             setSelectedMessage(null);
         } else {
-            toast.error("Digite uma mensagem!", {
+            toast.error("¡Escribe un mensaje!", {
                 position: "bottom-center",
                 autoClose: 2000,
                 hideProgressBar: false,

@@ -143,8 +143,8 @@ function ModalCreateGroup({open, handleClose}) {
                     handleCloseBackdrop();
                     Swal.fire({
                         icon: 'success',
-                        title: 'Sucesso',
-                        text: 'O seu grupo foi criado com sucesso!',
+                        title: 'Éxito',
+                        text: '¡Tu grupo ha sido creado con éxito!',
                     });
                 }, 3000);
             } catch (e) {
@@ -152,7 +152,7 @@ function ModalCreateGroup({open, handleClose}) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Houve um erro ao criar o grupo, tente novamente mais tarde...',
+                    text: 'Hubo un error al crear el grupo, intenta nuevamente más tarde...',
                 });
             }
         }
@@ -242,13 +242,13 @@ function ModalCreateGroup({open, handleClose}) {
                                     />
 
                                     <span>
-                                        Change Image
+                                        Cambiar imagen
                                     </span>
                                 </label>
                             </div>
 
                             <p>
-                                Group Name
+                                Nombre del grupo
                             </p>
                             <Input
                                 value={groupName}
@@ -257,7 +257,7 @@ function ModalCreateGroup({open, handleClose}) {
                             />
 
                             <p>
-                                Choose Participants
+                                Elegir contactos
                             </p>
                             <Autocomplete
                                 freeSolo
@@ -278,7 +278,7 @@ function ModalCreateGroup({open, handleClose}) {
                             />
 
                             <p>
-                                Description
+                                Descripción
                             </p>
                             <TextareaAutosize
                                 value={description}
@@ -292,10 +292,10 @@ function ModalCreateGroup({open, handleClose}) {
 
                     <Footer>
                         <CancelButton onClick={onClose}>
-                            Cancel
+                            Cancelar
                         </CancelButton>
                         <Button onClick={onSubmitForm}>
-                            Create Group
+                            Crear grupo
                         </Button>
                     </Footer>
                 </Container>

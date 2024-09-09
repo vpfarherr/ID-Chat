@@ -36,7 +36,7 @@ export default function BackdropComponent({ open }) {
             <Backdrop className={classes.backdrop} open={open}>
                 <Layout>
                     <h1>
-                        Please wait...
+                        Espera un momento...
                     </h1>
                 </Layout>
             </Backdrop>

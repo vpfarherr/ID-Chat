@@ -124,10 +124,10 @@ const ContactsPage = () => {
                                 </div>
                                 <div className={"wrapper-text"}>
                                     <h2>
-                                        All Contacts
+                                        Todos los Contactos
                                     </h2>
                                     <p>
-                                        Manage all your contacts.
+                                        Gestiona todos tus contactos.
                                     </p>
                                 </div>
                             </div>
@@ -140,10 +140,10 @@ const ContactsPage = () => {
                                 </div>
                                 <div className={"wrapper-text"}>
                                     <h2>
-                                        Add Contacts (Soon)
+                                        Añadir contactos
                                     </h2>
                                     <p>
-                                        Add contacts remotely.
+                                        Añadir contactos de forma remota.
                                     </p>
                                 </div>
                             </div>
@@ -163,10 +163,10 @@ const ContactsPage = () => {
                                 </div>
                                 <div className={"wrapper-text"}>
                                     <h2>
-                                        Export Contact List
+                                        Exportar Lista de Contactos
                                     </h2>
                                     <p>
-                                        Export your contact list to excel.
+                                        Exporta tu lista de contactos a Excel.
                                     </p>
                                 </div>
                             </div>
@@ -181,7 +181,7 @@ const ContactsPage = () => {
                         </h2>
 
                         <div>
-                            <input placeholder={"Search contacts..."} onChange={(e) => searchContact(e)}/>
+                            <input placeholder={"Buscar contactos..."} onChange={(e) => searchContact(e)}/>
                         </div>
                     </HeaderComponent>
 

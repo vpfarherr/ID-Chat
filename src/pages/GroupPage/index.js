@@ -52,11 +52,11 @@ const GroupPage = () => {
         },
     ];
 
-    const rows = groups.map((grupo, index) => {
+    const rows = groups.map((group, index) => {
         return {
             key: index,
-            id: grupo.id._serialized,
-            name: grupo.name,
+            id: group.id._serialized,
+            name: group.name,
         };
     });
 
@@ -83,10 +83,10 @@ const GroupPage = () => {
                                 </div>
                                 <div className={"wrapper-text"}>
                                     <h2>
-                                        All Groups
+                                        Todos los grupos
                                     </h2>
                                     <p>
-                                        Manage all your groups.
+                                        Administrar todos tus grupos.
                                     </p>
                                 </div>
                             </div>
@@ -102,10 +102,10 @@ const GroupPage = () => {
                                 </div>
                                 <div className={"wrapper-text"}>
                                     <h2>
-                                        Create Group
+                                        Crear grupo
                                     </h2>
                                     <p>
-                                        Create a WhatsApp group in an automated way.
+                                        Crear un grupo de WhatsApp de manera automatizada.
                                     </p>
                                 </div>
                             </div>
@@ -118,10 +118,10 @@ const GroupPage = () => {
                                 </div>
                                 <div className={"wrapper-text"}>
                                     <h2>
-                                        Invite Participants
+                                        Invitar participantes
                                     </h2>
                                     <p>
-                                        Invite participants to your groups quickly.
+                                        Invitar participantes a tus grupos.
                                     </p>
                                 </div>
                             </div>
@@ -141,10 +141,10 @@ const GroupPage = () => {
                                 </div>
                                 <div className={"wrapper-text"}>
                                     <h2>
-                                        Export Group List
+                                        Exportar Lista de Grupos
                                     </h2>
                                     <p>
-                                        Export your group list to excel.
+                                        Exporta tu lista de grupos a Excel.
                                     </p>
                                 </div>
                             </div>
@@ -155,11 +155,11 @@ const GroupPage = () => {
                 <RightContainer>
                     <HeaderComponent>
                         <h2>
-                            Groups
+                            Grupos
                         </h2>
 
                         <div>
-                            <input placeholder={"Procurar grupo..."}/>
+                            <input placeholder={"Buscar grupo..."}/>
                         </div>
                     </HeaderComponent>
 

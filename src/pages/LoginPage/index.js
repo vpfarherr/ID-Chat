@@ -26,7 +26,8 @@ import ErrorModal from "../../components/ErrorModal";
 import BackdropComponent from "../../components/BackdropComponent";
 import {useLocation} from "react-router-dom";
 import {login} from "../../services/auth";
-import LoginImage from "../../assets/login-v2.72cd8a26.svg";
+import LoginImage from "../../assets/login-logo.png";
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -88,11 +89,10 @@ export default function LoginPage({history}) {
     async function submitSession(e) {
         e.preventDefault();
 
-
         if (session === "") {
             handleOpenErrorModal();
-            setTitleError("Preencha todos os campos");
-            setErrorMessage("Você precisa preencher todos os campos antes de continuar.");
+            setTitleError("Llena todos los campos");
+            setErrorMessage("Necesitas llenar todos los campos antes de continuar.");
         } else {
             handleToggleBackdrop();
             await startSession();
@@ -120,8 +120,8 @@ export default function LoginPage({history}) {
             setTimeout(function () {
                 handleCloseBackdrop();
                 handleOpenErrorModal();
-                setTitleError("Oops... Algo deu errado.");
-                setErrorMessage("Verifique se a sessão e o token estão corretos.");
+                setTitleError("Oops... Algo salió mal.");
+                setErrorMessage("Verifica si la sesión y el token son correctos.");
             }, 2000);
         }
     }
@@ -212,7 +212,7 @@ export default function LoginPage({history}) {
                                                     draggable={"false"}
                                                 />
                                                 <Title>
-                                                    Scan QRCode
+                                                    Escanea el código QR
                                                 </Title>
                                             </div>
                                         )
@@ -222,22 +222,22 @@ export default function LoginPage({history}) {
                                         qrCode !== "" ? null : (
                                             <Formulario onSubmit={(e) => submitSession(e)}>
                                                 <Title id={"title"}>
-                                                    Entre com sua sessão
+                                                    Inicia sesión
                                                 </Title>
 
                                                 <Description id={"description"}>
-                                                    Digite o nome da sessão e token para entrar em sua conta
+                                                    Ingresa el nombre de la sesión y el token para acceder a tu cuenta
                                                 </Description>
 
                                                 <div className={"top-info"}>
                                                     <small>
-                                                        Sessão
+                                                        Sesión
                                                     </small>
                                                 </div>
                                                 <input
                                                     id={"session"}
                                                     autoComplete="off"
-                                                    placeholder="Nome da sessão"
+                                                    placeholder="Nombre de la sesión"
                                                     value={session}
                                                     onChange={(e) => setSession(e.target.value)}
                                                 />
@@ -246,10 +246,6 @@ export default function LoginPage({history}) {
                                                     <small>
                                                         Token
                                                     </small>
-
-                                                    <span onClick={() => handleOpenModal()}>
-                                                        Não sabe o token?
-                                                    </span>
                                                 </div>
 
                                                 <input

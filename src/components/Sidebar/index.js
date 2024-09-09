@@ -147,7 +147,7 @@ const Sidebar = () => {
                                 {selectedValue}
                             </p>
                             <small>
-                                Sección actual
+                                Sesion actual
                             </small>
                         </div>
                     </InfoSession>

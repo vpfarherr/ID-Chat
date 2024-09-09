@@ -513,7 +513,7 @@ const SendMessagePage = () => {
                             <WaitingContainer>
                             <div>
                                 <img src={ImageLoader} alt={"Smartphone"} />
-                                <h2>Choose a contact to start a conversation</h2>
+                                <h2>Elige un contacto para iniciar una conversación</h2>
                             </div>
                             </WaitingContainer>
                         ) : (

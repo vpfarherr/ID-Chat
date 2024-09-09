@@ -27,7 +27,7 @@ import BackdropComponent from "../../components/BackdropComponent";
 import {useLocation} from "react-router-dom";
 import {login} from "../../services/auth";
 import LoginImage from "../../assets/login-logo.png";
-import axios from 'axios';
+import dotenv from 'dotenv';
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -46,11 +46,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+import axios from 'axios';
+
 export default function LoginPage({history}) {
     const classes = useStyles();
     const [open,] = useState(true);
-    const [session, setSession] = useState("");
-    const [token, setToken] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [qrCode, setQrCode] = useState("");
     const [openBackdrop, setOpenBackdrop] = useState(false);
     const [openMenuModal, setOpenMenuModal] = useState(false);
@@ -64,7 +66,7 @@ export default function LoginPage({history}) {
 
     useEffect(() => {
         socket.on("qrCode", (qrCode) => {
-            if (session === qrCode.session) {
+            if (email === qrCode.session) {
                 setQrCode(qrCode.data);
                 handleCloseBackdrop();
                 if (animationRef.current !== null) {
@@ -74,8 +76,8 @@ export default function LoginPage({history}) {
         });
 
         socket.off("session-logged").on("session-logged", (status) => {
-            if (status.session === session) {
-                if (token) {
+            if (status.session === email) {
+                if (password) {
                     insertLocalStorage();
 
                     setTimeout(() => {
@@ -84,55 +86,46 @@ export default function LoginPage({history}) {
                 }
             }
         });
-    }, [session, token]);
+    }, [email, password]);
 
     async function submitSession(e) {
         e.preventDefault();
 
-        if (session === "") {
+        if (email === "" || password === "") {
             handleOpenErrorModal();
             setTitleError("Llena todos los campos");
             setErrorMessage("Necesitas llenar todos los campos antes de continuar.");
         } else {
             handleToggleBackdrop();
-            await startSession();
+            await authenticateUser();
         }
     }
 
     function insertLocalStorage() {
-        login(JSON.stringify({session: session, token: token}));
+        login(JSON.stringify({email: email, password: password}));
     }
 
-    async function startSession() {
+    async function authenticateUser() {
         try {
-            const config = {
-                headers: {Authorization: `Bearer ${token}`}
-            };
+            const response = await axios.post(`${process.env.SUPPORT_APP_API_URL}chat/authenticate`, {
+                email: email,
+                password: password
+            });
 
-            const checkConn = await api.get(`${session}/check-connection-session`, config);
-            if (!checkConn.data.status) {
-                await signSession();
-            } else {
+            if (response.data) {
                 insertLocalStorage();
                 history.push("/chat");
+            } else {
+                throw new Error("Authentication failed");
             }
         } catch (e) {
             setTimeout(function () {
                 handleCloseBackdrop();
                 handleOpenErrorModal();
                 setTitleError("Oops... Algo salió mal.");
-                setErrorMessage("Verifica si la sesión y el token son correctos.");
+                setErrorMessage("Verifica si el email y la contraseña son correctos.");
             }, 2000);
         }
-    }
-
-    async function signSession() {
-        const config = {
-            headers: {Authorization: `Bearer ${token}`}
-        };
-
-        await api.post(`${session}/start-session`, null, config)
-
     }
 
     const handleCloseBackdrop = () => {
@@ -226,34 +219,34 @@ export default function LoginPage({history}) {
                                                 </Title>
 
                                                 <Description id={"description"}>
-                                                    Ingresa el nombre de la sesión y el token para acceder a tu cuenta
+                                                    Ingresa el email y la contraseña para acceder a tu cuenta
                                                 </Description>
 
                                                 <div className={"top-info"}>
                                                     <small>
-                                                        Sesión
+                                                        Email
                                                     </small>
                                                 </div>
                                                 <input
-                                                    id={"session"}
+                                                    id={"email"}
                                                     autoComplete="off"
-                                                    placeholder="Nombre de la sesión"
-                                                    value={session}
-                                                    onChange={(e) => setSession(e.target.value)}
+                                                    placeholder="Email"
+                                                    value={email}
+                                                    onChange={(e) => setEmail(e.target.value)}
                                                 />
 
                                                 <div className={"top-info"}>
                                                     <small>
-                                                        Token
+                                                        Contraseña
                                                     </small>
                                                 </div>
 
                                                 <input
-                                                    id={"token"}
+                                                    id={"password"}
                                                     autoComplete="off"
-                                                    placeholder="Token"
-                                                    value={token}
-                                                    onChange={(e) =>{setToken(e.target.value)}}
+                                                    placeholder="Contraseña"
+                                                    value={password}
+                                                    onChange={(e) =>{setPassword(e.target.value)}}
                                                 />
 
                                                 <button type="submit" id="send-btn">

@@ -73,7 +73,7 @@ const ConversasComponent = ({chats, setChats, onSearch, onClickContact}) => {
                 >
                     <MenuIcon/>
                 </IconButton>
-                <input placeholder={"Pesquisar"} onChange={(e) => onSearch(e)}/>{" "}
+                <input placeholder={"Buscar"} onChange={(e) => onSearch(e)}/>{" "}
                 <Search/>
             </SearchComponent>
 
